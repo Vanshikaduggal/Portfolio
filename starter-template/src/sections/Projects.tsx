@@ -1,6 +1,8 @@
 import darkSaasLandingPage from "@/assets/images/dark-saas-landing-page.png";
 import lightSaasLandingPage from "@/assets/images/light-saas-landing-page.png";
 import aiStartupLandingPage from "@/assets/images/ai-startup-landing-page.png";
+import Image from "next/image";
+
 
 const portfolioProjects = [
   {
@@ -42,5 +44,58 @@ const portfolioProjects = [
 ];
 
 export const ProjectsSection = () => {
-  return <div>Projects Section</div>;
+  return (
+    <div className="py-12">
+      <div className="container mx-auto px-4">
+        <div className="flex justify-center">
+          <p className="uppercase font-semibold tracking-widest bg-gradient-to-r from-emerald-300 to-sky-400 text-transparent bg-clip-text text-center">
+            Real-world Results
+          </p>
+        </div>
+        <h2 className="font-serif text-3xl text-center mt-6">
+          Featured Projects
+        </h2>
+        <p className="text-center text-white/60 mt-4">
+          See how I transformed concepts into engaging digital experiences.
+        </p>
+
+        <div className="flex flex-col mt-10">
+          {portfolioProjects.map((project) => (
+            <div key={project.title} className="bg-gray-800 rounded-3xl z-0 overflow-hidden after:z-10 relative after:content-[''] after:absolute after:inset-0 after:outline-2 after:outline after:outline-offset-2 after:rounded-3xl after:outline-white/20 p-8">
+              <div className="flex">
+                <div className="bg-gradient-to-r from-emerald-300 to-sky-400 inline-flex  gap-2 font-bold uppercase tracking-widest text-sm text-transparent bg-clip-text">
+                  <span>{project.company}</span>
+                  <span>&bull;</span>
+                  <span>{project.year}</span>
+                </div>
+              </div>
+              <h3 className="font-serif text-2xl mt-2">{project.title}</h3>
+              <hr className="border-t-2 border-white/5 mt-4" />
+              <ul className="list-disc list-inside text-gray-700 mb-4">
+                {project.results.map((result, index) => (
+                  <li>
+                    <span>{result.title}</span>
+                  </li>
+                ))}
+              </ul>
+              <a
+                href={project.link}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <button className="bg-gradient-to-r from-emerald-400 to-sky-400 text-white px-4 py-2 rounded-lg hover:opacity-90 transition">
+                  View Live Site
+                </button>
+              </a>
+              <Image
+                src={project.image}
+                alt={project.title}
+                className="rounded-lg mb-4"
+              />
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
 };

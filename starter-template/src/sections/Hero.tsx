@@ -3,11 +3,14 @@ import Image from 'next/image';
 import ArrowDown from '@/assets/icons/arrow-down.svg'
 import grainImage from '@/assets/images/grain.jpg'
 import StartIcon from '@/assets/icons/star.svg'
+import SparkleIcon from '@/assets/icons/sparkle.svg'
+import CircleIcon from '@/assets/icons/check-circle.svg'
 import { HeroOrbit } from '@/components/HeroOrbit';
 
 export const HeroSection = () => {
   return (
     <div className='py-32 md:py-48 lg:py-60 relative z-0 overflow-x-clip'>
+      <div className='absolute inset-0 [mask-image:linear-gradient(to_bottom,transparent,black_10%,black_70%,transparent)]'>
       <div className='absolute inset-0 -z-30 opacity-5'
         style={{
           backgroundImage: `url(${grainImage.src})`
@@ -19,9 +22,49 @@ export const HeroSection = () => {
       <div className='size-[820px] hero-ring'></div>
       <div className='size-[1020px] hero-ring'></div>
       <div className='size-[1220px] hero-ring'></div>
-      <HeroOrbit size={800} rotation={-72}>
-      <StartIcon className="size-28 text-emerald-300" />
+      <HeroOrbit size={1000} rotation={-130}> {/* Top Center */}
+        <StartIcon className="size-28 text-emerald-300" />
       </HeroOrbit>
+
+      <HeroOrbit size={820} rotation={-40}> {/* Top Right */}
+        <StartIcon className="size-12 text-emerald-300" />
+      </HeroOrbit>
+
+      <HeroOrbit size={600} rotation={70}> {/* Bottom Left */}
+        <StartIcon className="size-8 text-emerald-300" />
+      </HeroOrbit>
+
+      <HeroOrbit size={550} rotation={-55}>
+        <SparkleIcon className="size-8 text-emerald-300/20"/>
+      </HeroOrbit>
+
+      <HeroOrbit size={570} rotation={30}>
+        <SparkleIcon className="size-5 text-emerald-300/20"/>
+      </HeroOrbit>
+
+      <HeroOrbit size={720} rotation={130}>
+        <SparkleIcon className="size-10 text-emerald-300/20"/>
+      </HeroOrbit>
+
+      <HeroOrbit size={970} rotation={90}>
+        <SparkleIcon className="size-14 text-emerald-300/20"/>
+      </HeroOrbit>
+      <HeroOrbit size={1000} rotation={40}>
+        <div className="size-3 rounded-full bg-emerald-300/20"/>
+      </HeroOrbit>
+
+      <HeroOrbit size={1020} rotation={-30}>
+        <div className="size-3 rounded-full bg-emerald-300/20"/>
+      </HeroOrbit>
+
+      <HeroOrbit size={1000} rotation={40}>
+        <div className="size-3 rounded-full bg-emerald-300/20"/>
+      </HeroOrbit>
+      
+      <HeroOrbit size={780} rotation={-90}>
+        <div className="size-3 rounded-full bg-emerald-300/20"/>
+      </HeroOrbit>
+      </div>
       <div className="container">
         <div className='flex flex-col items-center'>
           <Image src={memojiImage} className='size-[100px]' alt="Person peeking from behind laptop" />
