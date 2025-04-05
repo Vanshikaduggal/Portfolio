@@ -15,9 +15,10 @@ export const HeroOrbit = ({
       }}
     >
       <div
-        className="absolute left-1/2 top-0 -translate-x-1/2"
+        className="absolute left-1/2 top-0 -translate-x-1/2 animate-spin"
         style={{
-          transform: `rotate(${-rotation}deg)`, // optional: keeps the star upright
+          animationDuration: '4s', // Custom speed: 4 seconds per spin
+          transform: `rotate(${-rotation}deg)`, // optional: keeps upright
         }}
       >
         {children}
